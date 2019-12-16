@@ -10,11 +10,12 @@ import UIKit
 
 class SettingViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
-    // UIPickerViewに表示するデータをArrayで作成
-    let settingArray : [Int] = [10,20,30,40,50,60]
-    
-    // 設定値を覚えつキーを設定
+    // UIPickerViewに表示するデータを2Arrayで作成
+    let settingArray : [Int] = [60,120,180,240,300]
+    let list : [String] = ["ばりカタ","カタ","普通","やわ","ばり柔"]
+    // 設定値を覚えるキーを設定
     let settingKey = "timer_value"
+//    let hardnessKey = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +68,7 @@ class SettingViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         
     // UiPckerViewの表示する内容を設定
     func pickerView(_ pickerView: UIPickerView,titleForRow row: Int,forComponent component: Int) -> String? {
-            return String(settingArray[row])
+            return String(list[row])
         
     }
         
@@ -77,6 +78,7 @@ class SettingViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         //UserDefaultの設定
         let settings = UserDefaults.standard
         settings.setValue(settingArray[row], forKey: settingKey)
+//        settings.setValue(list[row],forKey: hardnessKey)
         settings.synchronize()
     }
 }

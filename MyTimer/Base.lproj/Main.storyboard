@@ -38,18 +38,38 @@
                                     <action selector="stopButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7o4-F5-TVO"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="麺の硬さ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRr-gF-vOe">
+                                <rect key="frame" x="122" y="105" width="171" height="47.5"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="39"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="普通" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiU-eM-wVu">
+                                <rect key="frame" x="122" y="192.5" width="169" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KiU-eM-wVu" secondAttribute="trailing" constant="123" id="1qL-Ib-YfQ"/>
+                            <constraint firstItem="KiU-eM-wVu" firstAttribute="top" secondItem="iRr-gF-vOe" secondAttribute="bottom" constant="40" id="2FU-Ep-x7G"/>
                             <constraint firstItem="6QS-aO-tWB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="39d-YN-ylW"/>
                             <constraint firstAttribute="bottom" secondItem="770-R4-FXc" secondAttribute="bottom" id="63i-9f-acL"/>
                             <constraint firstItem="770-R4-FXc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6uc-m2-dHb"/>
                             <constraint firstItem="Xq7-EK-rIe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="78S-5g-WIE"/>
                             <constraint firstItem="Xq7-EK-rIe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="8ka-C1-zNM"/>
                             <constraint firstItem="BSo-gX-vDy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="A8t-HP-lPw"/>
+                            <constraint firstItem="iRr-gF-vOe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="17" id="AUN-j7-PPe"/>
+                            <constraint firstItem="Xq7-EK-rIe" firstAttribute="top" secondItem="KiU-eM-wVu" secondAttribute="bottom" constant="95.5" id="EDS-U2-Ftd"/>
                             <constraint firstItem="770-R4-FXc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="G02-ik-oBL"/>
+                            <constraint firstItem="KiU-eM-wVu" firstAttribute="top" secondItem="iRr-gF-vOe" secondAttribute="bottom" constant="40" id="GwL-3b-2Kg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iRr-gF-vOe" secondAttribute="trailing" constant="121" id="KQf-EH-Pme"/>
                             <constraint firstItem="BSo-gX-vDy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="80" id="OeT-3U-b9b"/>
+                            <constraint firstItem="KiU-eM-wVu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="122" id="ROx-p6-O6Z"/>
                             <constraint firstItem="770-R4-FXc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UOu-64-vEA"/>
+                            <constraint firstItem="iRr-gF-vOe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="122" id="eWX-g6-Dmc"/>
                             <constraint firstItem="6QS-aO-tWB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-80" id="hKE-hJ-9b8"/>
                             <constraint firstAttribute="bottom" secondItem="770-R4-FXc" secondAttribute="bottom" id="mhH-hS-BBc"/>
                             <constraint firstItem="770-R4-FXc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nNV-ix-qUc"/>
@@ -67,6 +87,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="countDownLabel" destination="Xq7-EK-rIe" id="gfh-dR-LEM"/>
+                        <outlet property="stopButtonStop" destination="BSo-gX-vDy" id="a3Y-lk-2yG"/>
+                        <outlet property="strartButtonStop" destination="6QS-aO-tWB" id="85w-eF-t2m"/>
                         <segue destination="yab-bn-dKM" kind="show" identifier="goSetting" id="I1j-oL-Ze8"/>
                     </connections>
                 </viewController>

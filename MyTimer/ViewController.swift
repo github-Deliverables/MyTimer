@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     // 設定値を扱うキーを設定
     let settingKey = "timer_value"
+//    let hardnessKey = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,8 @@ class ViewController: UIViewController {
         let settings = UserDefaults.standard
         
         // UserDefaultsに初期値を登録
-        settings.register(defaults: [settingKey:10])
+        settings.register(defaults: [settingKey:180])
+//        settings.register(defaults: [hardnessKey: "普通"])
     }
 
 
@@ -50,9 +52,14 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "goSetting", sender: nil)
     }
     
+    @IBOutlet weak var strartButtonStop: UIButton!
+    
+    
     @IBAction func strartButtonAction(_ sender: Any) {
         // timerをアンラップしてnowTimerに代入
         if let nowTimer = timer {
+            strartButtonStop.isEnabled = false
+            stopButtonStop.isEnabled = true
             
             // もしタイマーが、実行中だったらスタートしない
             if nowTimer.isValid == true {
@@ -67,16 +74,22 @@ class ViewController: UIViewController {
                                      selector: #selector(self.timerInterrupt(_:)),
                                      userInfo: nil, repeats: true)
     }
+ 
+    
+    @IBOutlet weak var stopButtonStop: UIButton!
+    
     
     @IBAction func stopButtonAction(_ sender: Any) {
         // timerをアンラップしてnowTimerに代入
         if let nowTimer = timer {
+            stopButtonStop.isEnabled = false
             
             // もしタイマーが、実行中だったら停止
             if nowTimer.isValid == true {
                 
                 // タイマー停止
                 nowTimer.invalidate()
+                strartButtonStop.isEnabled = true
             }
         }
     }
@@ -84,10 +97,11 @@ class ViewController: UIViewController {
     func displayUpdate()-> Int {
         // UserDefaultsのインスタンスを生成
         let settings = UserDefaults.standard
+//        hardnessName.text = hardnessKey
         
         // 取得した秒数をtimerValueに渡す
         let timerValue = settings.integer(forKey: settingKey)
-        
+
         // 残り時間(remainCount)を生成
         let remainCount = timerValue - count
         
@@ -95,7 +109,8 @@ class ViewController: UIViewController {
         // １分以上は分で表示する
         if remainCount >= 60 {
             let minuteCount = remainCount / 60
-            countDownLabel.text = "\(minuteCount)分"
+            let secondCount = remainCount % 60
+            countDownLabel.text = "\(minuteCount)分\(secondCount)秒"
             
         }
         // １分未満は秒で表示する
