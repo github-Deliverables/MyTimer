@@ -92,7 +92,17 @@ class ViewController: UIViewController {
         let remainCount = timerValue - count
         
         // remainCount（残りの時間）をラベルに表示
-        countDownLabel.text = "残り\(remainCount)秒"
+        // １分以上は分で表示する
+        if remainCount >= 60 {
+            let minuteCount = remainCount / 60
+            countDownLabel.text = "\(minuteCount)分"
+            
+        }
+        // １分未満は秒で表示する
+        else if remainCount < 60 {
+            countDownLabel.text = "\(remainCount)秒"
+        }
+//        countDownLabel.text = "残り\(remainCount)秒"
         
         // 残り時間を戻り値に設定
         return remainCount
@@ -119,7 +129,7 @@ class ViewController: UIViewController {
     
     // 画面切り替えのタイミングで処理を行う
     override func viewDidAppear(_ animated: Bool) {
-        
+        super.viewDidAppear(animated)
         // カウント（経過時間）を0にする
         count = 0
         
