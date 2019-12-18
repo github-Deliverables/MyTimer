@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     // 設定値を扱うキーを設定
     let settingKey = "timer_value"
-//    let hardnessKey = ""
+    let hardnessKey = "hardnessKey"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,11 +56,12 @@ class ViewController: UIViewController {
     
     
     @IBAction func strartButtonAction(_ sender: Any) {
+        strartButtonStop.isEnabled = false
+        stopButtonStop.isEnabled = true
+
         // timerをアンラップしてnowTimerに代入
         if let nowTimer = timer {
-            strartButtonStop.isEnabled = false
-            stopButtonStop.isEnabled = true
-            
+                        
             // もしタイマーが、実行中だったらスタートしない
             if nowTimer.isValid == true {
                 
@@ -78,18 +79,21 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var stopButtonStop: UIButton!
     
+    @IBOutlet weak var hardnessName: UILabel!
     
     @IBAction func stopButtonAction(_ sender: Any) {
+        stopButtonStop.isEnabled = false
+        strartButtonStop.isEnabled = true
         // timerをアンラップしてnowTimerに代入
         if let nowTimer = timer {
-            stopButtonStop.isEnabled = false
+            
             
             // もしタイマーが、実行中だったら停止
             if nowTimer.isValid == true {
                 
                 // タイマー停止
                 nowTimer.invalidate()
-                strartButtonStop.isEnabled = true
+
             }
         }
     }
@@ -97,7 +101,7 @@ class ViewController: UIViewController {
     func displayUpdate()-> Int {
         // UserDefaultsのインスタンスを生成
         let settings = UserDefaults.standard
-//        hardnessName.text = hardnessKey
+        hardnessName.text = settings.string(forKey: hardnessKey)
         
         // 取得した秒数をtimerValueに渡す
         let timerValue = settings.integer(forKey: settingKey)

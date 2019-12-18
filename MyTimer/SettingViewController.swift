@@ -15,7 +15,7 @@ class SettingViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
     let list : [String] = ["ばりカタ","カタ","普通","やわ","ばり柔"]
     // 設定値を覚えるキーを設定
     let settingKey = "timer_value"
-//    let hardnessKey = ""
+    let hardnessKey = "hardnessKey"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +78,7 @@ class SettingViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         //UserDefaultの設定
         let settings = UserDefaults.standard
         settings.setValue(settingArray[row], forKey: settingKey)
-//        settings.setValue(list[row],forKey: hardnessKey)
+        settings.setValue(list[row],forKey: hardnessKey)
         settings.synchronize()
     }
 }

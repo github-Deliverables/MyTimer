@@ -87,6 +87,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="countDownLabel" destination="Xq7-EK-rIe" id="gfh-dR-LEM"/>
+                        <outlet property="hardnessName" destination="KiU-eM-wVu" id="PsG-T0-L4z"/>
                         <outlet property="stopButtonStop" destination="BSo-gX-vDy" id="a3Y-lk-2yG"/>
                         <outlet property="strartButtonStop" destination="6QS-aO-tWB" id="85w-eF-t2m"/>
                         <segue destination="yab-bn-dKM" kind="show" identifier="goSetting" id="I1j-oL-Ze8"/>
